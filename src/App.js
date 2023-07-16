@@ -1,12 +1,12 @@
 import './App.css'
-import CapsuleList from './views/CapsuleList'
+import Capsules from './views/Capsules'
 import Hero from './components/Hero/Hero'
 
 function App() {
   return (
     <div className="App">
       <Hero />
-      <CapsuleList />
+      <Capsules />
     </div>
   )
 }

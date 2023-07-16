@@ -1,12 +1,13 @@
 // ** Redux Imports
 import { configureStore, createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { baseUrl } from '../../app.config'
+import { baseUrl } from '../app.config'
 import axios from 'axios'
 
-export const allCapsules = createAsyncThunk(
-  'capsules/allCapsules',
-  async ({ params }, { dispatch }) => {
-    const response = await axios.get(baseUrl() + `/capsules`)
+export const getAllCapsules = createAsyncThunk(
+  'capsules/getAllCapsules',
+  async ({ params }) => {
+    console.log(params)
+    const response = await axios.get(baseUrl() + `/capsules`, { params })
     return {
       allCapsules: response?.data
     }
@@ -19,10 +20,8 @@ export const capsuleSlice = createSlice({
     allCapsules: [],
     loader: false,
     params: {
-      pageNo: 1,
-      pageSize: 10,
-      search: '',
-      export: false
+      offset: 0,
+      limit: 10
     },
     totalPages: 0,
     selected: null,
@@ -64,7 +63,7 @@ export const capsuleSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    builder.addCase(allCapsules.fulfilled, (state, action) => {
+    builder.addCase(getAllCapsules.fulfilled, (state, action) => {
       state.allCapsules = action?.payload?.allCapsules
       state.totalPages = action?.payload?.totalPages
       state.loader = false
