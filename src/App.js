@@ -1,9 +1,12 @@
 import './App.css'
+import CapsuleList from './components/CapsuleList'
+import Hero from './components/Hero/Hero'
 
 function App() {
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Hero />
+      <CapsuleList />
     </div>
   )
 }
