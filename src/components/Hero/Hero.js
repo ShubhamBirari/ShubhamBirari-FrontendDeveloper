@@ -12,7 +12,7 @@ const navigation = [
 const Hero = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
-    <div className="h-screen bg-[url('/assets/images/hero.jpg')] bg-cover  bg-center">
+    <div className="h-screen bg-[url('assets/images/hero.jpg')] bg-cover  bg-center">
       <header className="absolute inset-x-0 top-0 z-50">
         <nav
           className="flex items-center justify-between p-6 lg:px-8"

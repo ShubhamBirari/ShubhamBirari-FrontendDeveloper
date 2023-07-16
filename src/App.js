@@ -1,5 +1,5 @@
 import './App.css'
-import CapsuleList from './components/CapsuleList'
+import CapsuleList from './views/CapsuleList'
 import Hero from './components/Hero/Hero'
 
 function App() {

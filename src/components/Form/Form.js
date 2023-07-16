@@ -13,31 +13,25 @@ const Form = () => {
             method="POST"
           >
             <Input
-              id="email"
-              name="email"
-              type="email"
+              id="status"
+              name="status"
               placeholder="Status"
-              autoComplete="email"
               required
               className="md:mx-2 lg:mx-4 xl:mx-8 sm:my-4 my-4"
             />
 
             <Input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Original launch"
-              autoComplete="email"
+              id="mission"
+              name="mission"
+              placeholder="Mission"
               required
               className="md:mx-2 lg:mx-4 xl:mx-8 sm:my-4 my-4"
             />
 
             <Input
-              id="email"
-              name="email"
-              type="email"
+              id="type"
+              name="type"
               placeholder="Type"
-              autoComplete="email"
               required
               className="md:mx-2 lg:mx-4 xl:mx-8 sm:my-4 my-4"
             />
