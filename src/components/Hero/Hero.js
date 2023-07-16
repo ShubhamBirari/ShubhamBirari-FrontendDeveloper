@@ -124,12 +124,12 @@ const Hero = () => {
             }}
           />
         </div>
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 ">
+        <div className="mx-auto max-w-2xl py-58 sm:py-48 lg:py-56 ">
           <div className="text-center transition-transform duration-500 delay-500 -translate-y-12">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl translate-up translate-y-full opacity-0 transition-all duration-[1500ms]">
               CAPSULES
             </h1>
-            <p className="mt-6 text-lg leading-8 text-white">
+            <p className="mt-6 text-lg leading-8 text-white translate-up1 translate-y-full opacity-0 transition-all duration-[1500ms]">
               Sending humans and cargo into space
             </p>
           </div>
