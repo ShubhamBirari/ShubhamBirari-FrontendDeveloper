@@ -28,7 +28,7 @@ const Modal = ({ isOpen }) => {
               {/* <!-- Modal header --> */}
               <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                  {capsule_serial ?? ''}
+                  {missions[0]?.name ?? 'Lorem ipsum'}
                 </h3>
                 <button
                   type="button"
@@ -57,6 +57,10 @@ const Modal = ({ isOpen }) => {
               {/* <!-- Modal body --> */}
               <div class="p-6 space-y-6 text-white">
                 <table>
+                  <tr>
+                    <td>Serial</td>
+                    <td className="px-8">: {capsule_serial}</td>
+                  </tr>
                   <tr>
                     <td>Status</td>
                     <td className="px-8">: {status}</td>
