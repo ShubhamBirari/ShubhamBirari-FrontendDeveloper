@@ -1,8 +1,21 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { selectItem, toggleModal } from '../redux/store'
 
 const CapsuleCard = ({ item }) => {
+  const dispatch = useDispatch()
+
   return (
-    <div key={item?.capsule_serial} className="card border-2 rounded p-8">
+    <div
+      key={item?.capsule_serial}
+      data-modal-target="defaultModal"
+      data-modal-toggle="defaultModal"
+      className="card border-2 rounded p-8 cursor-pointer hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-800 dark:hover:bg-gray-700"
+      onClick={() => {
+        dispatch(toggleModal(true))
+        dispatch(selectItem(item))
+      }}
+    >
       <div className="flex justify-center h-80">
         <div className="mt-8 text-center">
           <p className="text-2xl text-white h-20">

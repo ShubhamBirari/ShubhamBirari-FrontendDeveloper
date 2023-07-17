@@ -6,7 +6,6 @@ import axios from 'axios'
 export const getAllCapsules = createAsyncThunk(
   'capsules/getAllCapsules',
   async ({ params }) => {
-    console.log(params)
     const response = await axios.get(baseUrl() + `/capsules`, { params })
     return {
       allCapsules: response?.data
@@ -19,6 +18,7 @@ export const capsuleSlice = createSlice({
   initialState: {
     allCapsules: [],
     loader: true,
+    isModalOpen: false,
     params: {
       offset: 0,
       limit: 9,
@@ -33,15 +33,8 @@ export const capsuleSlice = createSlice({
     }
   },
   reducers: {
-    selectAttendance: (state, action) => {
-      if (action.payload === null) {
-        state.selected = null
-      } else {
-        state.selected = {
-          ...action.payload,
-          subtrackCompleteDate: ''
-        }
-      }
+    selectItem: (state, action) => {
+      state.selected = { ...action.payload }
     },
     selectedFilters: (state, action) => {
       if (action.payload === null) {
@@ -54,6 +47,9 @@ export const capsuleSlice = createSlice({
     },
     setLoader: (state, action) => {
       state.loader = action.payload
+    },
+    toggleModal: (state, action) => {
+      state.isModalOpen = action.payload
     },
     setPageNo: (state, action) => {
       state.params = { ...state.params, pageNo: action.payload }
@@ -83,7 +79,13 @@ const store = configureStore({
   }
 })
 
-export const { setParam, setPageNo, setPageSize, setLoader } =
-  capsuleSlice.actions
+export const {
+  setParam,
+  setPageNo,
+  setPageSize,
+  setLoader,
+  toggleModal,
+  selectItem
+} = capsuleSlice.actions
 
 export { store }

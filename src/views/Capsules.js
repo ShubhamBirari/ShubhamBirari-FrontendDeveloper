@@ -4,9 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import Form from '../components/Form/Form'
 import { getAllCapsules, setLoader } from '../redux/store'
 import List from './List'
+import Modal from '../components/Modal/Modal'
 
 const Capsules = () => {
-  const { allCapsules, params, loader } = useSelector((state) => state.reducer)
+  const { allCapsules, params, isModalOpen } = useSelector(
+    (state) => state.reducer
+  )
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -19,6 +22,7 @@ const Capsules = () => {
     <>
       <Form />
       <List list={allCapsules} />
+      <Modal isOpen={isModalOpen} />
     </>
   )
 }
