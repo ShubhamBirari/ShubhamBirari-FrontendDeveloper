@@ -18,10 +18,13 @@ export const capsuleSlice = createSlice({
   name: 'capsules',
   initialState: {
     allCapsules: [],
-    loader: false,
+    loader: true,
     params: {
       offset: 0,
-      limit: 10
+      limit: 9,
+      status: '',
+      mission: '',
+      type: ''
     },
     totalPages: 0,
     selected: null,
@@ -58,8 +61,8 @@ export const capsuleSlice = createSlice({
     setPageSize: (state, action) => {
       state.params = { ...state.params, pageSize: action.payload }
     },
-    setSearch: (state, action) => {
-      state.params = { ...state.params, search: action.payload }
+    setParam: (state, action) => {
+      state.params = { ...state.params, ...action.payload }
     }
   },
   extraReducers: (builder) => {
@@ -79,5 +82,8 @@ const store = configureStore({
     })
   }
 })
+
+export const { setParam, setPageNo, setPageSize, setLoader } =
+  capsuleSlice.actions
 
 export { store }
